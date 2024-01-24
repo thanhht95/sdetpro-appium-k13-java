@@ -11,7 +11,7 @@ public class Lab_3_1 {
         System.out.print("Input the maximum number of the random range: ");
         int maxRange = scanner.nextInt();
 
-        //Random the given array with input length
+        //Random the value
         Random randomIntNumbers = new Random();
         int[] intArr = new int[expectedArrLength];
         int arrLength = intArr.length;
