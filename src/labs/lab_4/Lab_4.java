@@ -50,11 +50,6 @@ public class Lab_4 {
             }
 
             int userOption = scanner.nextInt();
-            while (userOption > 5) {
-                System.out.println("That's not a number!");
-                System.out.println("Please input a valid number: ");
-                scanner.next();
-            }
 
             //1. Print all numbers
             switch (userOption) {
