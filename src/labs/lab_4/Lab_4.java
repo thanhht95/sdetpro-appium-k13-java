@@ -8,9 +8,18 @@ public class Lab_4 {
     public static void main(String[] args) {
         //Get input to generate a random array
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Input the expected length of the array: ");
+        while (!scanner.hasNextInt()) {
+            System.out.println("That's not a number!");
+            System.out.println("Please input a valid number: ");
+            scanner.next();
+        }
         int expectedArrLength = scanner.nextInt();
         System.out.print("Input the maximum number of the random range: ");
+        while (!scanner.hasNextInt()) {
+            System.out.println("That's not a number!");
+            System.out.println("Please input a valid number: ");
+            scanner.next();
+        }
         int maxRange = scanner.nextInt();
 
         //Random the value
@@ -66,6 +75,11 @@ public class Lab_4 {
             if (userOption == 4) {
                 //Get user input the number to search
                 System.out.println("Which number do you want to search for? ");
+                while (!scanner.hasNextInt()) {
+                    System.out.println("That's not a number!");
+                    System.out.println("Please input a valid number: ");
+                    scanner.next();
+                }
                 int userSearchingNumber = scanner.nextInt();
                 //If it is greater the random range, print result, else start search
                 if (userSearchingNumber > maxRange){

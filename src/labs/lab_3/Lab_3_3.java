@@ -9,8 +9,18 @@ public class Lab_3_3 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Input the expected length of the Array: ");
+        while (!scanner.hasNextInt()) {
+            System.out.println("That's not a number!");
+            System.out.println("Please input a valid number: ");
+            scanner.next();
+        }
         int expectedArrLength = scanner.nextInt();
         System.out.print("Input the maximum number of the random range: ");
+        while (!scanner.hasNextInt()) {
+            System.out.println("That's not a number!");
+            System.out.println("Please input a valid number: ");
+            scanner.next();
+        }
         int maxRange = scanner.nextInt();
 
         //Random the value
@@ -38,6 +48,6 @@ public class Lab_3_3 {
                 }
             }
         }
-        System.out.println(Arrays.toString(intArr));
+        System.out.println("Ordered Array: " + Arrays.toString(intArr));
     }
 }

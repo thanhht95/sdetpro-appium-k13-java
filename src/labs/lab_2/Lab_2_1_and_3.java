@@ -7,8 +7,18 @@ public class Lab_2_1_and_3 {
         //Get input
         Scanner scanner = new Scanner(System.in);
         System.out.print("Nhập Chiều cao của bạn (m): ");
+        while (!scanner.hasNextFloat()) {
+            System.out.println("That's not a number!");
+            System.out.println("Please input a valid number: ");
+            scanner.next();
+        }
         float height = scanner.nextFloat();
         System.out.print("Nhập Cân nặng của bạn (kg): ");
+        while (!scanner.hasNextFloat()) {
+            System.out.println("That's not a number!");
+            System.out.println("Please input a valid number: ");
+            scanner.next();
+        }
         float weight = scanner.nextFloat();
         //Calculate BMI and ideal weight
         float BMI = weight / (height*2);
