@@ -8,6 +8,7 @@ public class Lab_4 {
     public static void main(String[] args) {
         //Get input to generate a random array
         Scanner scanner = new Scanner(System.in);
+        System.out.print("Input the expected length of the Array: ");
         while (!scanner.hasNextInt()) {
             System.out.println("That's not a number!");
             System.out.println("Please input a valid number: ");
@@ -90,7 +91,7 @@ public class Lab_4 {
                     for (int index = 0; index < arrLength; index++) {
                         if (userSearchingNumber == intArr[index]) {
                             hasResult = true;
-                            System.out.println("The search number is in the list and the position is " + (index + 1));
+                            System.out.println("The search number " + userSearchingNumber + " is in the list and the position is " + (index + 1));
                             System.out.println("\nWhat do you want next? ");
                             break;
                         }
