@@ -5,22 +5,11 @@ import java.util.*;
 public class Lab_4 {
     public static void main(String[] args) {
         //Get input to generate a random array
-        Scanner scanner = new Scanner(System.in);
         System.out.print("Input the expected length of the Array: ");
-        while (!scanner.hasNextInt()) {
-            System.out.println("That's not a number!");
-            System.out.println("Please input a valid number: ");
-            scanner.next();
-        }
-        int expectedArrLength = scanner.nextInt();
+        int expectedArrLength = getUserInputANumber();
 
         System.out.print("Input the maximum number of the random range: ");
-        while (!scanner.hasNextInt()) {
-            System.out.println("That's not a number!");
-            System.out.println("Please input a valid number: ");
-            scanner.next();
-        }
-        int maxRange = scanner.nextInt();
+        int maxRange = getUserInputANumber();
 
         //Random the value
         List<Integer> intArr = randomArrayListValue(expectedArrLength,maxRange);
@@ -28,8 +17,8 @@ public class Lab_4 {
         boolean isContinueing = true;
         do {
             printMenu();
-
-            int userOption = getUserOption();
+            System.out.println("Input a corresponding number to select the option: ");
+            int userOption = getUserInputANumber();
             switch (userOption) {
                 //1. Print all numbers
                 case 1: {
@@ -67,6 +56,24 @@ public class Lab_4 {
         }  while (isContinueing);
     }
 
+    public static int getUserInputANumber(){
+        Scanner scanner = new Scanner(System.in);
+        while (!scanner.hasNextInt()) {
+            System.out.println("That's not a number!");
+            System.out.println("Please input a valid number: ");
+            scanner.next();
+        }
+        int userInputNumber = scanner.nextInt();
+        validatePositiveNumber(userInputNumber);
+        return userInputNumber;
+    }
+
+    public static void validatePositiveNumber(int userInputNumber){
+        if (userInputNumber < 1) {
+            System.out.println("Please input a number greater than 0: ");
+            getUserInputANumber();
+        }
+    }
 
     public static List<Integer> randomArrayListValue (int expectedArrLength, int maxRange){
         Random randomIntNumbers = new Random();
@@ -84,17 +91,6 @@ public class Lab_4 {
         System.out.println("3. Print minimum value");
         System.out.println("4. Search number");
         System.out.println("5. Exit");
-    }
-
-    public static int getUserOption() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Input a corresponding number to select the option: ");
-        while (!scanner.hasNextInt()) {
-            System.out.println("That's not a number!");
-            System.out.println("Please input a valid number: ");
-            scanner.next();
-        }
-        return scanner.nextInt();
     }
 
     public static void printAllNumbers (List<Integer> intArr){
@@ -125,15 +121,9 @@ public class Lab_4 {
     }
 
     public static void searchNumber(List<Integer> intArr, int maxRange){
-        Scanner scanner = new Scanner(System.in);
         //Get user input the number to search
         System.out.println("Which number do you want to search for? ");
-        while (!scanner.hasNextInt()) {
-            System.out.println("That's not a number!");
-            System.out.println("Please input a valid number: ");
-            scanner.next();
-        }
-        int userSearchingNumber = scanner.nextInt();
+        int userSearchingNumber = getUserInputANumber();
         //If it is greater the random range, print result, else start search
         if (userSearchingNumber > maxRange) {
             System.out.println("Cannot find out! The searching number is outbound of the generated list.");
