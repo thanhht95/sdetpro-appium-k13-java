@@ -9,9 +9,9 @@ public class Lab_6_3 {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please input a string: ");
         String userInput = scanner.nextLine();
-
         List<Integer> numberFromStr = new ArrayList<>();
         char[] charArray = userInput.toCharArray();
+        String numbers;
         for (char character: charArray){
             if(Character.isDigit(character)){
                 numberFromStr.add(Integer.valueOf(String.valueOf(character)));
